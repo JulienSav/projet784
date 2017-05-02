@@ -3,12 +3,21 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
+Genres = require('./models/genres');
+
 //connect to mongoose
-//mongoose.connect('mongodb://localhost/projet');
-//var db = mongoose.connection;
+mongoose.connect('mongodb://localhost/projet');
+var db = mongoose.connection;
 
 app.get('/', function(req, res){
-	res.send('Hello world !');
+	res.send('Please /api/books or /api/genres');
+});
+
+app.get('/api/genres', function (req, res) {
+	Genres.getGenres(function (err, genres) {
+		if (err) throw err;
+		res.json(genres);
+	});
 });
 
 app.listen(8080);
