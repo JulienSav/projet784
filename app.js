@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 Genres = require('./models/genre');
+Books = require('/models/book');
 
 //connect to mongoose
 mongoose.connect('mongodb://localhost/projet');
@@ -17,6 +18,13 @@ app.get('/api/genres', function (req, res) {
 	Genres.getGenres(function (err, genres) {
 		if (err) throw err;
 		res.json(genres);
+	});
+});
+
+app.get('/api/books', function (req, res) {
+	Books.getBooks(function (err, books) {
+		if (err) throw err;
+		res.json(books);
 	});
 });
 
