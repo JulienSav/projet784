@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-Genres = require('./models/genres');
+Genres = require('./models/genre');
 
 //connect to mongoose
 mongoose.connect('mongodb://localhost/projet');
