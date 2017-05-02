@@ -28,5 +28,12 @@ app.get('/api/books', function (req, res) {
 	});
 });
 
+app.get('/api/books/:_id', function (req, res) {
+	Books.getBookById(req.params._id, function (err, book) {
+		if (err) throw err;
+		res.json(book);
+	});
+});
+
 app.listen(8080);
 console.log('Running on port 8080');
