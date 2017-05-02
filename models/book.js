@@ -12,7 +12,7 @@ var bookSchema = mongoose.Schema({
 	description:{
 		type: String,
 		require: true
-	}
+	},
 	create_date: {
 		type: Date,
 		default:Date.now
